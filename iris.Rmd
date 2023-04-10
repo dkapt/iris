@@ -1,0 +1,63 @@
+---
+title: "Exploratory Data Analysis"
+author: "Dimitrios Kapetanios"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r libraries, include=FALSE}
+library(datasets)
+library(ggplot2)                     # Load ggplot2 package
+library(GGally) 
+library(DT)
+```
+
+```
+library(datasets)
+library(ggplot2)                     # Load ggplot2 package
+library(GGally)
+```
+
+### Βιβλιοθήκες σε εφαρμογή:
+*   `"datasets"`
+*   `"ggplot2"`
+*   `"GGally"`
+
+```{r}
+library(datasets)
+data("iris")
+head(iris)
+tail(iris)
+str(iris)   # structure of dataset
+```
+
+Πίνακας συσχέτισης (κάτω τριγωνικός) των μεταβλητών του δείγματος δεδομένων.
+```{r correlation plot, echo=FALSE}
+ggcorr(iris[,1:4], palette = "RdBu", label = TRUE)
+```
+
+
+Παρατηρείται πως το ζεύγος των μεταβλητών `petal length` και `petal width` εμφανίζει τη μεγαλύτερη συσχέτιση από κάθε πιθανό συνδυασμό μεταβλητών.
+
+```{r pair plot, echo=FALSE}
+ggpairs(iris, aes(colour = Species, alpha = 0.4))
+```
+
+```{r}
+DT::datatable(iris)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
